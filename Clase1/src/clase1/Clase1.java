@@ -37,10 +37,10 @@ public class Clase1 {
    
         //Mustang
         Automovil miMustang = new Automovil();
-        miBocho.marca="Ford";
-        miBocho.subMarca="Mustang";
-        miBocho.modelo=2010;
-        miBocho.color="Amarillo";
+        miMustang.marca="Ford";
+        miMustang.subMarca="Mustang";
+        miMustang.modelo=2010;
+        miMustang.color="Amarillo";
         //Mustang
         miMustang.encender();
         miMustang.avanzar();
@@ -50,10 +50,10 @@ public class Clase1 {
 
         //Akura
         Automovil miAkura = new Automovil();
-        miBocho.marca="Akura";
-        miBocho.subMarca="NSX";
-        miBocho.modelo=2013;
-        miBocho.color="Gris";
+        miAkura.marca="Akura";
+        miAkura.subMarca="NSX";
+        miAkura.modelo=2013;
+        miAkura.color="Gris";
        
         
         //Akura

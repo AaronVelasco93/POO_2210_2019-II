@@ -15,22 +15,27 @@ public class Automovil {
     public int modelo;
     public String color;
     
+    
+    
     public Automovil(){
         this.marca="Sin marca";
         this.subMarca="Sin submarca";
         this.modelo=0;
         this.color="Sin color";
+        System.out.println("NAda");
     }
+
+       
     
     public void encender(){
-        System.out.println("Encendiendo el " + this.marca);
+        System.out.println("Encendiendo el " + marca);
     }
     
     public void avanzar(){
-        System.out.println("Avanzando el " + this.marca);
+        System.out.println("Avanzando el " + marca);
     }
     
     public void apagar(){
-        System.out.println("Apagando el "+ this.marca);
+        System.out.println("Apagando el "+marca);
     }
 }
