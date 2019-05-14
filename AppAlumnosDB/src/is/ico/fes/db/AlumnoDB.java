@@ -7,6 +7,10 @@ package is.ico.fes.db;
 
 import is.ico.fes.modelo.Alumno;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,4 +45,31 @@ public class AlumnoDB {
         return resultado;
     }
     
+    public Alumno buscaPorNumCta(String nc){
+        Alumno resultado=null;
+        String sql="SELECT * FROM alumno WHERE numCta=?;";
+        try {
+            PreparedStatement pstm=bd.getConn().prepareStatement(sql);
+            pstm.setString(1, nc);
+            ResultSet rst=pstm.executeQuery();
+            if(rst.next()){
+                resultado=new Alumno();
+                resultado.setNombre(rst.getString(1));
+                resultado.setPaterno(rst.getString(2));
+                resultado.setMaterno(rst.getString(3));
+                resultado.setEdad(rst.getInt(4));
+                resultado.setNumCta(rst.getString(5));
+                resultado.setCarrera(rst.getString(6));
+                resultado.setTurno(rst.getString(7));
+                resultado.setPromedio(rst.getFloat(8));
+                resultado.setSemestre(rst.getInt(9));   
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        return resultado;
+    }
 }
