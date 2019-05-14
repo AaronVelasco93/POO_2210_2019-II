@@ -72,4 +72,37 @@ public class AlumnoDB {
         
         return resultado;
     }
+    
+    public boolean modificaAlumno(Alumno al){
+        boolean resultado=false;
+        String sql="UPDATE alumno set nombre=?, paterno=?"
+                + ",materno=?,edad=?,carrera=?,turno=?"
+                + ",promedio=?,semestre=? WHERE numCta=?;";
+        try {
+            PreparedStatement pstm=bd.getConn().prepareStatement(sql);
+            pstm.setString(1, al.getNombre());
+            pstm.setString(2, al.getPaterno());
+            pstm.setString(3, al.getMaterno());
+            pstm.setInt(4, al.getEdad());
+            pstm.setString(5, al.getCarrera());
+            pstm.setString(6, al.getTurno());
+            pstm.setFloat(7, al.getPromedio());
+            pstm.setInt(8, al.getSemestre());
+            pstm.setString(9, al.getNumCta());
+            int rowCount=pstm.executeUpdate();
+            resultado=rowCount != 0;
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        return resultado;
+    }
+
+
+
 }
+
+
+
+
+
