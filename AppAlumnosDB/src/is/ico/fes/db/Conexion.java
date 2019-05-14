@@ -7,6 +7,9 @@ package is.ico.fes.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -61,7 +64,17 @@ private Connection conn;
         this.conn = conn;
     }
     
-    
+    public static void main(String[] args) {
+        String crea="CREATE database alumnos;";
+        Conexion c=new Conexion();
+    try {
+        boolean res=c.getConn().createStatement().execute(crea);
+        if(res)System.out.println("OK");
+    } catch (SQLException ex) {
+        System.out.println("Error:"+ex.toString());
+    }
+        
+    }
 
 
 }

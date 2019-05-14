@@ -22,7 +22,7 @@ public class AlumnoDB {
     public boolean insertarAlumno(Alumno al){
         boolean resultado=false;
         try {
-            String sql="INSERT INTO alumnos values(?,?,?,?,?,?,?,?,?);";
+            String sql="INSERT INTO alumno values(?,?,?,?,?,?,?,?,?);";
             PreparedStatement stm=bd.getConn().prepareStatement(sql);
             stm.setString(1, al.getNombre());
             stm.setString(2, al.getPaterno());
