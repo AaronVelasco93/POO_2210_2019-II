@@ -9,6 +9,8 @@ import is.ico.fes.modelo.Alumno;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -98,7 +100,33 @@ public class AlumnoDB {
         return resultado;
     }
 
-
+    public ArrayList<Alumno>  bucarTodos(){
+        ArrayList<Alumno> als=new ArrayList<Alumno>();
+        String sql="SELECT * FROM alumno;";
+        try {
+            Statement stm=bd.getConn().createStatement();
+            ResultSet rst=stm.executeQuery(sql);
+            while(rst.next()){
+                als.add(new Alumno(
+                            rst.getString(1),
+                            rst.getString(2),
+                            rst.getString(3),
+                            rst.getInt(4),
+                            rst.getString(5),
+                            rst.getString(6),
+                            rst.getString(7),
+                            rst.getFloat(8),
+                            rst.getInt(9)
+                            ));
+            }
+            
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
+        
+        
+        return als;
+    } 
 
 }
 
